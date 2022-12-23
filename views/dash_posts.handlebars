@@ -1,0 +1,18 @@
+{{#each posts as |post|}}
+<div class="card" style="margin: 10px 0; width: 808px;">
+ <a href="/dashboard/{{post.id}}">
+  <header class="card-header has-background-warning">
+    <figure class="image is-24x24">
+      <img src="https://i.imgur.com/QQthnGd.png">
+    </figure>
+    <p class="card-header-title">
+      {{post.title}}
+    </p>
+    <p class="card-header-title is-size-6">{{post.createdAt}}</p>
+  </header>
+ </a>
+</div>
+{{/each}}
+<a href="" style="position:fixed;bottom: 40px;right: 45%;width: 250px;height: 100px;">
+  <div class="box has-background-warning-light"><p class="title">+ New Post</p></div>
+</a>

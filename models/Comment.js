@@ -1,6 +1,7 @@
 // Require dependencies
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection.js');
+const sequelize = require('../config/connections.js');
+const moment = require('moment');
 
 // Adds a class model for Comment
 class Comment extends Model {}
@@ -33,6 +34,25 @@ Comment.init(
                 model: 'user',
                 key: 'id'
             }
+        },
+        createdAt: {
+            type: DataTypes.STRING,
+            allowNull: false,
         }
+    },
+    {
+        hooks: {
+            beforeCreate: async (newComment) => {
+                newComment.createdAt = moment().format('MMM Do, YYYY h:mm a');
+                return newComment;
+            }
+        },
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'comment',
     }
 )
+
+module.exports = {Comment}

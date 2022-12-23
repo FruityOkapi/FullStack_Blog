@@ -1,0 +1,20 @@
+{{#each posts as |post|}}
+<div class="card" style="margin: 10px 0">
+  <header class="card-header has-background-warning">
+    <p class="card-header-title">
+      {{post.title}}
+    </p>
+  </header>
+  <div class="card-content has-background-warning-light">
+    <div class="content">
+      {{post.body}}
+    </div>
+    <footer class="card-footer">
+      <p class="footer-item is-light">
+        <br>
+        Posted by {{post.user.username}} at {{post.createdAt}}
+      </p>
+    </footer>
+  </div>
+</div>
+{{/each}}
